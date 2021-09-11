@@ -1,16 +1,19 @@
 #include "monty.h"
-stack_t *node = NULL;
+list_t *node = NULL;
 
+/**
+ * main - Monty interpreter
+ * @argc: number of arguments passed
+ * @argv: argument vectors/variables
+ *
+ * Return: Always 0
+ */
 int main(int argc, char **argv)
 {
-	if (argc != 2 && argv[1])
-	{
-		// Do error stuff
-	}
+	if (argc != 2)
+		print_error(ERR_ARGCOUNT);
 
-	file_open(argv[1]);
-
-	free_list();
+	file_reader(argv[1]);
 
 	return (0);
 }

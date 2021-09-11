@@ -1,9 +1,14 @@
 #ifndef _MONTY_H_
 #define _MONTY_H_
 
+/* Defines */
+#define ERR_ARGCOUNT	0
+#define ERR_FOPEN		1
 /* Includes */
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <stdarg.h>
 
 /* Structs */
 /**
@@ -20,7 +25,7 @@ typedef struct stack_s
         int n;
         struct stack_s *prev;
         struct stack_s *next;
-} stack_t;
+} list_t;
 
 /**
  * struct instruction_s - opcode and its function
@@ -36,6 +41,8 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
+/* Function Prototypes */
+void print_error(unsigned int id, ...);
+void file_reader(char *filename);
 
 #endif
