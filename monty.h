@@ -72,5 +72,6 @@ void pall(node_t **top, unsigned int line);
 void nop(node_t **top, unsigned int line);
 void pint(node_t **top, unsigned int line);
 void pop(node_t **top, unsigned int line);
+void swap(node_t **top, unsigned int line);
 
 #endif
