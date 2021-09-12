@@ -58,11 +58,16 @@ typedef void (*op_invoke)(node_t **, unsigned int);
 extern node_t *node;
 
 /* Function Prototypes */
+/* Node Functions */
+node_t *create_node(int num);
+void destroy_nodes(void);
+
 void exit_error(unsigned int id, ...);
-void file_reader(char *filename);
+int file_reader(char *filename);
 int tokenize(char *buffer, unsigned int line);
 int run_opcode(char *op, char *value, unsigned int line);
-void invoke(char *op, char *value, op_invoke f, unsigned int line);
-void push();
+int invoke(char *op, char *value, op_invoke f, unsigned int line);
+void push(node_t **new, unsigned int line);
+void pall(node_t **new, unsigned int line);
 
 #endif

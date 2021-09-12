@@ -4,11 +4,11 @@
  * file_reader - opens ans reads a monty bytecode file
  * @filename - file to open
  */
-void file_reader(char *filename)
+int file_reader(char *filename)
 {
 	FILE *fd = NULL;
 	size_t size = 0;
-	unsigned int line = 0;
+	unsigned int line = 1; /* Line numbers always start at 1 */
 	char *buffer = NULL;
 
 	if (!filename)
@@ -24,16 +24,19 @@ void file_reader(char *filename)
 		exit_error(ERR_FOPEN, filename);
 
 	/* read each line  --- MAIN PROGRAM LOOP */
-	while (getline(&buffer, &size, fd))
+	while (getline(&buffer, &size, fd) != EOF)
 	{
 		if (!buffer)
 			exit_error(ERR_MALLOC);
-		line++; /* Line numbers always start at 1 */
 		tokenize(buffer, line);
+		line++;
 	}
 
 	free(buffer);
 	fclose(fd);
+
+	printf("leaving file_reader()\n");
+	return (0);
 }
 
 /**
@@ -59,6 +62,8 @@ int tokenize(char *buffer, unsigned int line)
 
 	/* see if op is an opcode and run it */
 	run_opcode(op, value, line);
+
+	printf("leaving tokenize()\n");
 
 	return (0);
 }

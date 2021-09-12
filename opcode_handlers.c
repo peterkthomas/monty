@@ -8,13 +8,14 @@
  *
  * Return: Always 0
  */
-int run_opcode(char *op, char *value __attribute__((unused)), unsigned int line)
+int run_opcode(char *op, char *value, unsigned int line)
 {
 	unsigned int cursor = 0, error = true;
 
 	/* Opcodes to match and function pointer to execute */
 	instruction_t codes[] = {
 		{"push", push},
+		{"pall", pall},
 		{NULL, NULL}
 	};
 
@@ -22,13 +23,14 @@ int run_opcode(char *op, char *value __attribute__((unused)), unsigned int line)
 	/* look for a matching opcode */
 	while (codes[cursor].opcode)
 	{
-		cursor++;
 		if (strcmp(op, codes[cursor].opcode) == 0)
 		{
+			printf("Op: %s, opcode: %s\n", op, codes[cursor].opcode);
 			/* Run opcode function */
-			invoke(op, value, codes[cursor].opcode, line);
+			invoke(op, value, codes[cursor].f, line);
 			error = false;
 		}
+		cursor++;
 	}
 	printf("	->past while loop with opcode: %s on line %u\n", op, line);
 	if (error)
@@ -37,15 +39,16 @@ int run_opcode(char *op, char *value __attribute__((unused)), unsigned int line)
 	return (0);
 }
 
-void invoke(char *op, char *value, op_invoke f, unsigned int line)
+int invoke(char *op, char *value, op_invoke f, unsigned int line)
 {
 	node_t *temp_node;
 	int i = 0, mult = 1;
 
-	if (strcmp(op, "push"))
+	printf("in invoke\n");
+	if (strcmp(op, "push") == 0)
 	{
 		if (!value)
-			perror("ERROR"); /* fix */
+			perror("No Value For PUSH"); /* fix */
 		if (value[0] == '-')
 		{
 			i++;
@@ -55,7 +58,7 @@ void invoke(char *op, char *value, op_invoke f, unsigned int line)
 		{
 			if (!isdigit(value[i]))
 			{
-				/* error */
+				perror("No Digit in Push");/* error */
 			}
 			i++;
 		}
@@ -64,4 +67,6 @@ void invoke(char *op, char *value, op_invoke f, unsigned int line)
 	}
 	else
 		f(&node, line);
+
+	return (0);
 }

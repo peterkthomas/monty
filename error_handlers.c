@@ -32,5 +32,6 @@ void exit_error(unsigned int id, ...)
 	}
 
 	va_end(args);
+	destroy_nodes();
 	exit(EXIT_FAILURE);
 }

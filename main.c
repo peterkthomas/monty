@@ -10,10 +10,13 @@ node_t *node = NULL;
  */
 int main(int argc, char **argv)
 {
+	int status = 0;
+
 	if (argc != 2)
 		exit_error(ERR_ARGCOUNT);
 
-	file_reader(argv[1]);
+	status = file_reader(argv[1]);
 
-	return (0);
+	destroy_nodes();
+	return (status);
 }
