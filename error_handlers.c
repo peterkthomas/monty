@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * exit_error - Writes error messages
+ * exit_error - Writes error messages and exits
  * @id: ID of the error message to print
  */
 void exit_error(unsigned int id, ...)

@@ -18,6 +18,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <string.h>
+#include <ctype.h>
 
 /* Structs */
 
@@ -48,8 +49,10 @@ typedef struct node_s
 typedef struct instruction_s
 {
         char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+        void (*f)(node_t **stack, unsigned int line_number);
 } instruction_t;
+
+typedef void (*op_invoke)(node_t **, unsigned int);
 
 /* External Variables */
 extern node_t *node;
@@ -59,6 +62,7 @@ void exit_error(unsigned int id, ...);
 void file_reader(char *filename);
 int tokenize(char *buffer, unsigned int line);
 int run_opcode(char *op, char *value, unsigned int line);
+void invoke(char *op, char *value, op_invoke f, unsigned int line);
 void push();
 
 #endif
