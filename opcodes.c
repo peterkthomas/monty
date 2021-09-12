@@ -70,3 +70,22 @@ void pint(node_t **top, unsigned int line __attribute__((unused)))
 
 	printf("%d\n", (*top)->n);
 }
+
+/**
+ * pop - pops a node off the top of the stack
+ * @top: double pointer to the top node of stack
+ * @line: line number
+ */
+void pop(node_t **top, unsigned int line __attribute__((unused)))
+{
+	node_t *temp_node;
+
+	if (!top)
+		exit(EXIT_FAILURE); /* needs pop error handling */
+
+	temp_node = *top;
+	*top = temp_node->next;
+	if (*top)
+		(*top)->prev = NULL;
+	free(temp_node);
+}

@@ -71,5 +71,6 @@ void push(node_t **new, unsigned int line);
 void pall(node_t **top, unsigned int line);
 void nop(node_t **top, unsigned int line);
 void pint(node_t **top, unsigned int line);
+void pop(node_t **top, unsigned int line);
 
 #endif

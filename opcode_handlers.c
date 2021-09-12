@@ -18,6 +18,7 @@ int run_opcode(char *op, char *value, unsigned int line)
 		{"pall", pall},
 		{"nop", nop},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
 
