@@ -33,14 +33,14 @@ void push(node_t **new, unsigned int line __attribute__((unused)))
 /**
  * pall - prints all items on stack
  */
-void pall(node_t **new, unsigned int line __attribute__((unused)))
+void pall(node_t **top, unsigned int line __attribute__((unused)))
 {
 	node_t *temp_node;
 
 	printf("in pall()\n");
-	if(!new)
+	if(!top)
 		exit(EXIT_FAILURE);
-	temp_node = *new;
+	temp_node = *top;
 	while (temp_node)
 	{
 		fprintf(stdout, "%d\n", temp_node->n);
@@ -50,10 +50,23 @@ void pall(node_t **new, unsigned int line __attribute__((unused)))
 
 /**
  * nop - do nothing
- * @new: pointer to the top of stack
+ * @top: pointer to the top of stack
  * @line: line number(unused)
  */
-void nop(node_t **new, unsigned int line __attribute__((unused)))
+void nop(node_t **top, unsigned int line __attribute__((unused)))
 {
-	(void)new;
+	(void)top;
+}
+
+/**
+ * pint - prints contents of the top node on the stack
+ * @top: double pointer to top node of stack
+ * @line: line number
+ */
+void pint(node_t **top, unsigned int line __attribute__((unused)))
+{
+	if (!top)
+		exit(EXIT_FAILURE); /* needs pint error handling */
+
+	printf("%d\n", (*top)->n);
 }

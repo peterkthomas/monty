@@ -68,7 +68,8 @@ int tokenize(char *buffer, unsigned int line);
 int run_opcode(char *op, char *value, unsigned int line);
 int invoke(char *op, char *value, op_invoke f, unsigned int line);
 void push(node_t **new, unsigned int line);
-void pall(node_t **new, unsigned int line);
-void nop(node_t **new, unsigned int line);
+void pall(node_t **top, unsigned int line);
+void nop(node_t **top, unsigned int line);
+void pint(node_t **top, unsigned int line);
 
 #endif
