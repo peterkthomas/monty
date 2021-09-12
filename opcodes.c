@@ -47,3 +47,13 @@ void pall(node_t **new, unsigned int line __attribute__((unused)))
 		temp_node = temp_node->next;
 	}
 }
+
+/**
+ * nop - do nothing
+ * @new: pointer to the top of stack
+ * @line: line number(unused)
+ */
+void nop(node_t **new, unsigned int line __attribute__((unused)))
+{
+	(void)new;
+}

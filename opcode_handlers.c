@@ -16,6 +16,7 @@ int run_opcode(char *op, char *value, unsigned int line)
 	instruction_t codes[] = {
 		{"push", push},
 		{"pall", pall},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 
