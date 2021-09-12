@@ -12,7 +12,7 @@ void swap(node_t **top, unsigned int line __attribute__((unused)))
 	if (!top)
 		exit(EXIT_FAILURE); /* add error handling */
 
-	temp_node = (*top)->next;
+	temp_node = (*top)->next; /* temp node is node after head node */
 	(*top)->next = temp_node->next;
 
 	if (temp_node->next)
@@ -23,4 +23,23 @@ void swap(node_t **top, unsigned int line __attribute__((unused)))
 
 	temp_node->prev = NULL;
 	*top = temp_node;
+}
+
+/**
+ * add - adds the values of the top two nodes in the stack
+ * @top: top item in stack
+ * @line: line number for error handling
+ */
+void add(node_t **top, unsigned int line __attribute__((unused)))
+{
+	int val;
+
+	if (!top || !*top || !(*top)->next)
+		exit(EXIT_FAILURE); /* need to add error handling */
+
+	(*top) = (*top)->next;
+	val = (*top)->n + (*top)->prev->n;
+	(*top)->n = val;
+	free((*top)->prev);
+	(*top)->prev = NULL;
 }

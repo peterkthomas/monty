@@ -20,6 +20,7 @@ int run_opcode(char *op, char *value, unsigned int line)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
+		{"add", add},
 		{NULL, NULL}
 	};
 
