@@ -1,5 +1,5 @@
 #include "monty.h"
-list_t *node = NULL;
+node_t *node = NULL;
 
 /**
  * main - Monty interpreter
@@ -11,7 +11,7 @@ list_t *node = NULL;
 int main(int argc, char **argv)
 {
 	if (argc != 2)
-		print_error(ERR_ARGCOUNT);
+		exit_error(ERR_ARGCOUNT);
 
 	file_reader(argv[1]);
 
