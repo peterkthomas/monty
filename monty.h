@@ -14,6 +14,8 @@
 #define ERR_PUSH                4
 #define ERR_PINT                5
 #define ERR_POP                 6
+#define ERR_SWAP                7
+#define ERR_ADD                 8
 
 /* Includes */
 #include <stdlib.h>

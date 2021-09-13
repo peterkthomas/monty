@@ -5,12 +5,12 @@
  * @top: top item in stack
  * @line: line number for error handling
  */
-void swap(node_t **top, unsigned int line __attribute__((unused)))
+void swap(node_t **top, unsigned int line)
 {
 	node_t *temp_node;
 
-	if (!top)
-		exit(EXIT_FAILURE); /* add error handling */
+	if (!top || !*top || !(*top)->next)
+		exit_error(ERR_SWAP, line);
 
 	temp_node = (*top)->next; /* temp node is node after head node */
 	(*top)->next = temp_node->next;
@@ -35,7 +35,7 @@ void add(node_t **top, unsigned int line __attribute__((unused)))
 	int val;
 
 	if (!top || !*top || !(*top)->next)
-		exit(EXIT_FAILURE); /* need to add error handling */
+		exit_error(ERR_ADD, line);
 
 	(*top) = (*top)->next;
 	val = (*top)->n + (*top)->prev->n;
