@@ -3,16 +3,20 @@
 /**
  * destroy_nodes - releases all node_t nodes
  */
-void destroy_nodes(void)
+void destroy_nodes()
 {
+	node_t *temp_node;
+
 	if (!node)
 		return;
 
 	while (node)
 	{
+		temp_node = node;
 		node = node->next;
-		free(node);
+		free(temp_node);
 	}
+
 }
 
 /**
