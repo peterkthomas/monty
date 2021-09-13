@@ -62,7 +62,7 @@ void nop(node_t **top, unsigned int line __attribute__((unused)))
 void pint(node_t **top, unsigned int line)
 {
 	if (!top || !*top)
-		exit_error(ERR_PINT, line);
+		exit_error(ERR_GENERAL, line, "can't pint, stack empty");
 
 	printf("%d\n", (*top)->n);
 }
@@ -72,12 +72,12 @@ void pint(node_t **top, unsigned int line)
  * @top: double pointer to the top node of stack
  * @line: line number
  */
-void pop(node_t **top, unsigned int line __attribute__((unused)))
+void pop(node_t **top, unsigned int line)
 {
 	node_t *temp_node;
 
 	if (!top || !*top)
-		exit_error(ERR_POP);
+		exit_error(ERR_GENERAL, line, "can't pop an empty stack");
 
 	temp_node = *top;
 	*top = temp_node->next;

@@ -11,11 +11,9 @@
 #define	ERR_FOPEN		1
 #define	ERR_MALLOC		2
 #define	ERR_INSTRUCTION	        3
-#define ERR_PUSH                4
-#define ERR_PINT                5
-#define ERR_POP                 6
-#define ERR_SWAP                7
-#define ERR_ADD                 8
+#define ERR_GENERAL             4
+#define ERR_SWAP                5
+#define ERR_ADD                 6
 
 /* Includes */
 #include <stdlib.h>

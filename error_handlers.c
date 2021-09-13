@@ -24,16 +24,9 @@ void exit_error(unsigned int id, ...)
 			fprintf(stderr, "L%u: unknown instruction %s\n",
 					va_arg(args, unsigned int), va_arg(args, char *));
 			break;
-		case ERR_PUSH:
-			fprintf(stderr, "L%u: usage: push integer\n", va_arg(args, unsigned int));
-			break;
-		case ERR_PINT:
-			fprintf(stderr, "L%u: can't pint, stack empty\n",
-					va_arg(args, unsigned int));
-			break;
-		case ERR_POP:
-			fprintf(stderr, "L%u: can't pop an empty stack\n",
-					va_arg(args, unsigned int));
+		case ERR_GENERAL:
+			fprintf(stderr, "L%u: %s\n",
+					va_arg(args, unsigned int), va_arg(args, char *));
 			break;
 		case ERR_SWAP:
 			fprintf(stderr, "L%u: can't swap, stack too short\n",
