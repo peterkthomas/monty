@@ -9,10 +9,8 @@ void push(node_t **new, unsigned int line __attribute__((unused)))
 {
 	node_t *temp_node;
 
-	if (!new)
-	{
+	if (!new || !*new)
 		exit(EXIT_FAILURE);
-	}
 
 	if (!node)
 	{
@@ -36,7 +34,7 @@ void pall(node_t **top, unsigned int line __attribute__((unused)))
 {
 	node_t *temp_node;
 
-	if (!top)
+	if (!top || !*top)
 		exit(EXIT_FAILURE);
 	temp_node = *top;
 	while (temp_node)
@@ -61,10 +59,10 @@ void nop(node_t **top, unsigned int line __attribute__((unused)))
  * @top: double pointer to top node of stack
  * @line: line number
  */
-void pint(node_t **top, unsigned int line __attribute__((unused)))
+void pint(node_t **top, unsigned int line)
 {
-	if (!top)
-		exit(EXIT_FAILURE); /* needs pint error handling */
+	if (!top || !*top)
+		exit_error(ERR_PINT, line);
 
 	printf("%d\n", (*top)->n);
 }

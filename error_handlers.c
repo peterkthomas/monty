@@ -7,7 +7,6 @@
 void exit_error(unsigned int id, ...)
 {
 	va_list args;
-	unsigned int line;
 	char *op;
 
 	va_start(args, id);
@@ -23,9 +22,17 @@ void exit_error(unsigned int id, ...)
 			fprintf(stderr, "Error: malloc failed\n");
 			break;
 		case ERR_INSTRUCTION:
+			va_arg(args, unsigned int);
 			op = va_arg(args, char *);
-			line = va_arg(args, unsigned int);
-			fprintf(stderr, "L%u: unknown instruction %s\n", line, op);
+			fprintf(stderr, "L%u: unknown instruction %s\n",
+					va_arg(args, unsigned int), va_arg(args, char *));
+			break;
+		case ERR_PUSH:
+			fprintf(stderr, "L%u: usage: push integer\n", va_arg(args, unsigned int));
+			break;
+		case ERR_PINT:
+			fprintf(stderr, "L%u: can't pint, stack empty\n",
+					va_arg(args, unsigned int));
 			break;
 		default:
 			break;

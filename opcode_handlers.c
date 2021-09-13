@@ -58,7 +58,7 @@ int invoke(char *op, char *value, op_invoke f, unsigned int line)
 	if (strcmp(op, "push") == 0)
 	{
 		if (!value)
-			perror("No Value For PUSH"); /* fix */
+			exit_error(ERR_PUSH, line);
 		if (value[0] == '-')
 		{
 			i++;
@@ -67,9 +67,7 @@ int invoke(char *op, char *value, op_invoke f, unsigned int line)
 		while (value[i])
 		{
 			if (!isdigit(value[i]))
-			{
-				perror("No Digit in Push");/* error */
-			}
+				exit_error(ERR_PUSH, line);
 			i++;
 		}
 		temp_node = create_node(atoi(value) * mult);
