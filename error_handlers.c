@@ -7,7 +7,6 @@
 void exit_error(unsigned int id, ...)
 {
 	va_list args;
-	char *op;
 
 	va_start(args, id);
 	switch (id)
@@ -23,7 +22,6 @@ void exit_error(unsigned int id, ...)
 			break;
 		case ERR_INSTRUCTION:
 			va_arg(args, unsigned int);
-			op = va_arg(args, char *);
 			fprintf(stderr, "L%u: unknown instruction %s\n",
 					va_arg(args, unsigned int), va_arg(args, char *));
 			break;

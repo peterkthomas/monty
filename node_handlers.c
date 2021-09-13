@@ -5,18 +5,14 @@
  */
 void destroy_nodes(void)
 {
-	node_t *temp_node;
-
 	if (!node)
 		return;
 
 	while (node)
 	{
-		temp_node = node;
 		node = node->next;
 		free(node);
 	}
-
 }
 
 /**
