@@ -3,7 +3,7 @@
 /**
  * destroy_nodes - releases all node_t nodes
  */
-void destroy_nodes()
+void destroy_nodes(void)
 {
 	node_t *temp_node;
 
