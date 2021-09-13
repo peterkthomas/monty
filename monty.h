@@ -7,10 +7,10 @@
 #define true			1
 #define false			0
 /* errors */
-#define	ERR_ARGCOUNT	0
+#define	ERR_ARGCOUNT	        0
 #define	ERR_FOPEN		1
 #define	ERR_MALLOC		2
-#define	ERR_INSTRUCTION	3
+#define	ERR_INSTRUCTION	        3
 
 /* Includes */
 #include <stdlib.h>

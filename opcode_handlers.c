@@ -24,20 +24,17 @@ int run_opcode(char *op, char *value, unsigned int line)
 		{NULL, NULL}
 	};
 
-	printf("in run_opcode()\n");
 	/* look for a matching opcode */
 	while (codes[cursor].opcode)
 	{
 		if (strcmp(op, codes[cursor].opcode) == 0)
 		{
-			printf("Op: %s, opcode: %s\n", op, codes[cursor].opcode);
 			/* Run opcode function */
 			invoke(op, value, codes[cursor].f, line);
 			error = false;
 		}
 		cursor++;
 	}
-	printf("	->past while loop with opcode: %s on line %u\n", op, line);
 	if (error)
 		exit_error(ERR_INSTRUCTION, op, line);
 
@@ -49,7 +46,6 @@ int invoke(char *op, char *value, op_invoke f, unsigned int line)
 	node_t *temp_node;
 	int i = 0, mult = 1;
 
-	printf("in invoke\n");
 	if (strcmp(op, "push") == 0)
 	{
 		if (!value)

@@ -11,13 +11,11 @@ void push(node_t **new, unsigned int line __attribute__((unused)))
 
 	if (!new)
 	{
-		printf("in exit_fail\n");
 		exit(EXIT_FAILURE);
 	}
 
 	if (!node)
 	{
-		printf("in push()\n");
 		node = *new;
 		return;
 	}
@@ -27,7 +25,6 @@ void push(node_t **new, unsigned int line __attribute__((unused)))
 	node = *new;
 	node->next = temp_node;
 	temp_node->prev = node;
-	printf("in push()\n");
 }
 
 /**
@@ -37,7 +34,6 @@ void pall(node_t **top, unsigned int line __attribute__((unused)))
 {
 	node_t *temp_node;
 
-	printf("in pall()\n");
 	if(!top)
 		exit(EXIT_FAILURE);
 	temp_node = *top;

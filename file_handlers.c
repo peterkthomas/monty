@@ -35,7 +35,6 @@ int file_reader(char *filename)
 	free(buffer);
 	fclose(fd);
 
-	printf("leaving file_reader()\n");
 	return (0);
 }
 
@@ -62,8 +61,6 @@ int tokenize(char *buffer, unsigned int line)
 
 	/* see if op is an opcode and run it */
 	run_opcode(op, value, line);
-
-	printf("leaving tokenize()\n");
 
 	return (0);
 }
