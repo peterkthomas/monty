@@ -13,6 +13,7 @@
 #define	ERR_INSTRUCTION	        3
 #define ERR_PUSH                4
 #define ERR_PINT                5
+#define ERR_POP                 6
 
 /* Includes */
 #include <stdlib.h>

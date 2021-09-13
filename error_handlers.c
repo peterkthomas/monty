@@ -32,6 +32,9 @@ void exit_error(unsigned int id, ...)
 			fprintf(stderr, "L%u: can't pint, stack empty\n",
 					va_arg(args, unsigned int));
 			break;
+		case ERR_POP:
+			fprintf(stderr, "L%u: can't pop an empty stack\n",
+					va_arg(args, unsigned int));
 		default:
 			break;
 	}

@@ -76,8 +76,8 @@ void pop(node_t **top, unsigned int line __attribute__((unused)))
 {
 	node_t *temp_node;
 
-	if (!top)
-		exit(EXIT_FAILURE); /* needs pop error handling */
+	if (!top || !*top)
+		exit_error(ERR_POP);
 
 	temp_node = *top;
 	*top = temp_node->next;
