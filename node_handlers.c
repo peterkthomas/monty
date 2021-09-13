@@ -6,6 +6,7 @@
 void destroy_nodes(void)
 {
 	node_t *temp_node;
+
 	if (!node)
 		return;
 

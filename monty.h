@@ -33,9 +33,9 @@
  */
 typedef struct node_s
 {
-        int n;
-        struct node_s *prev;
-        struct node_s *next;
+int n;
+struct node_s *prev;
+struct node_s *next;
 } node_t;
 
 /**
@@ -48,8 +48,8 @@ typedef struct node_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(node_t **stack, unsigned int line_number);
+char *opcode;
+void (*f)(node_t **stack, unsigned int line_number);
 } instruction_t;
 
 typedef void (*op_invoke)(node_t **, unsigned int);

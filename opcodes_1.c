@@ -29,12 +29,14 @@ void push(node_t **new, unsigned int line __attribute__((unused)))
 
 /**
  * pall - prints all items on stack
+ * @top: pointer to the top node of stack
+ * @line: line number to print
  */
 void pall(node_t **top, unsigned int line __attribute__((unused)))
 {
 	node_t *temp_node;
 
-	if(!top)
+	if (!top)
 		exit(EXIT_FAILURE);
 	temp_node = *top;
 	while (temp_node)

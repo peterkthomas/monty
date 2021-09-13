@@ -2,7 +2,9 @@
 
 /**
  * file_reader - opens ans reads a monty bytecode file
- * @filename - file to open
+ * @filename: - file to open
+ *
+ * Return: Always 0
  */
 int file_reader(char *filename)
 {
@@ -49,7 +51,7 @@ int tokenize(char *buffer, unsigned int line)
 {
 	char *op = NULL, *value = NULL;
 
-	if(!buffer)
+	if (!buffer)
 		exit_error(ERR_MALLOC);
 
 	op = strtok(buffer, " \n");

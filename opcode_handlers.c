@@ -41,6 +41,15 @@ int run_opcode(char *op, char *value, unsigned int line)
 	return (0);
 }
 
+/**
+ * invoke - runs a specified function
+ * @op: opcode to execute
+ * @value: value for PUSH
+ * @f: function to execute
+ * @line: line number of input file
+ *
+ * Return: Always 0
+ */
 int invoke(char *op, char *value, op_invoke f, unsigned int line)
 {
 	node_t *temp_node;
