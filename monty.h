@@ -33,7 +33,7 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO Holberton project
  */
-typedef struct stack_s
+typedef struct node_s
 {
 int n;
 struct node_s *prev;
