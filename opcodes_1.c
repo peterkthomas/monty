@@ -34,13 +34,14 @@ void pall(node_t **top, unsigned int line __attribute__((unused)))
 {
 	node_t *temp_node;
 
-	if (!top || !*top)
-		exit(EXIT_FAILURE);
-	temp_node = *top;
-	while (temp_node)
+	if (top && *top)
 	{
-		fprintf(stdout, "%d\n", temp_node->n);
-		temp_node = temp_node->next;
+		temp_node = *top;
+		while (temp_node)
+		{
+			fprintf(stdout, "%d\n", temp_node->n);
+			temp_node = temp_node->next;
+		}
 	}
 }
 
