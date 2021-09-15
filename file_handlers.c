@@ -54,12 +54,12 @@ int tokenize(char *buffer, unsigned int line)
 	if (!buffer)
 		exit_error(ERR_MALLOC);
 
-	op = strtok(buffer, " \t\n");
+	op = strtok(buffer, " \t\r\n");
 
 	if (!op)
 		return (0); /* next line plz */
 
-	value = strtok(NULL, " \t\n");
+	value = strtok(NULL, " \t\r\n");
 
 	/* see if op is an opcode and run it */
 	run_opcode(op, value, line);
